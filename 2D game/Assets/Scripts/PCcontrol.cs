@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PC control : MonoBehaviour {
+public class PCcontrol : MonoBehaviour {
 
     // Player Movement Variables
     public int MoveSpeed;
@@ -21,7 +21,7 @@ public class PC control : MonoBehaviour {
 	
 	
 	void FixedUpdate () {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround)
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 	}
 
 	// Update is called once per frame
@@ -34,6 +34,7 @@ public class PC control : MonoBehaviour {
         }
 
     public void Jump(){
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, Jumpheight)
+        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, Jumpheight);
     }
+
 }
