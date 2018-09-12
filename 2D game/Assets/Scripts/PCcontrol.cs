@@ -28,10 +28,20 @@ public class PCcontrol : MonoBehaviour {
 	private void Update(){
 
             //this code makes the character jump
-            if(Input.GetKeyDown(KeyCode.Space) && grounded){
+        if(Input.GetKeyDown(KeyCode.W) && grounded){
                 Jump(); 
             }
+
+        // this is the A&D keys ror left and right.
+        if(Input.GetKey (KeyCode.D)){
+            GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
         }
+        if(Input.GetKey (KeyCode.A)){
+            GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
+        }
+    }
 
     public void Jump(){
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, Jumpheight);
