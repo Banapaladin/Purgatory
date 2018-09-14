@@ -31,11 +31,10 @@ public class PCcontrolsolo : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.W) && grounded){
                 Jump(); 
             }
-            //this is the drop command
-        if (Input.GetKeyDown(KeyCode.S))
-        {
+        //this is the drop command
+        if (Input.GetKeyDown(KeyCode.S)){
             Drop();
-
+            }
         // this is the A&D keys ror left and right.
         if(Input.GetKey (KeyCode.D)){
             GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
