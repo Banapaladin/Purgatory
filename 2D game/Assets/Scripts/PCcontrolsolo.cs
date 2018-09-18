@@ -13,6 +13,9 @@ public class PCcontrolsolo : MonoBehaviour {
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     private bool grounded;
+    private bool DoubleJump;
+    //non-slip variable
+    private float moveVelocity;
 
 	// Use this for initialization
 	void Start () {
@@ -31,20 +34,38 @@ public class PCcontrolsolo : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.W) && grounded){
                 Jump(); 
             }
+
+        //double jump
+        if (grounded)
+            DoubleJump = false;
+
+        if (Input.GetKeyDown(KeyCode.W) && !DoubleJump && !grounded){
+            Jump();
+            DoubleJump = true;
+        }
+
+        //non-slip player
+        moveVelocity = 0f;
+
         //this is the drop command
         if (Input.GetKeyDown(KeyCode.S)){
             Drop();
             }
+
         // this is the A&D keys ror left and right.
         if(Input.GetKey (KeyCode.D)){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
+            moveVelocity = MoveSpeed;
         }
         if(Input.GetKey (KeyCode.A)){
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
+            moveVelocity = -MoveSpeed;
         }
-       
+        //comment this out when you turn off no-slip
+        GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
+
     }
 
     public void Jump(){
