@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour {
 
     public static int Score;
 
-    Texture ScoreText;
+    Text ScoreText;
 
 	private void Start(){
         ScoreText = GetComponent<Text>();
