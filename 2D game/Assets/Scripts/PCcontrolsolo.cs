@@ -31,7 +31,7 @@ public class PCcontrolsolo : MonoBehaviour {
 	private void Update(){
 
             //this code makes the character jump
-        if(Input.GetKeyDown(KeyCode.W) && grounded){
+        if(Input.GetKeyDown(KeyCode.UpArrow) && grounded){
                 Jump(); 
             }
 
@@ -39,7 +39,7 @@ public class PCcontrolsolo : MonoBehaviour {
         if (grounded)
             DoubleJump = false;
 
-        if (Input.GetKeyDown(KeyCode.W) && !DoubleJump && !grounded){
+        if (Input.GetKeyDown(KeyCode.UpArrow) && !DoubleJump && !grounded){
             Jump();
             DoubleJump = true;
         }
@@ -48,17 +48,17 @@ public class PCcontrolsolo : MonoBehaviour {
         moveVelocity = 0f;
 
         //this is the drop command
-        if (Input.GetKeyDown(KeyCode.S)){
+        if (Input.GetKeyDown(KeyCode.DownArrow)){
             Drop();
             }
 
         // this is the A&D keys ror left and right.
-        if(Input.GetKey (KeyCode.D)){
+        if(Input.GetKey (KeyCode.RightArrow)){
             //GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
             moveVelocity = MoveSpeed;
         }
-        if(Input.GetKey (KeyCode.A)){
+        if(Input.GetKey (KeyCode.LeftArrow)){
             //GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
             moveVelocity = -MoveSpeed;
