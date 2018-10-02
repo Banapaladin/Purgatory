@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour {
         Instantiate(DeathParticle, PC.transform.position, PC.transform.rotation);
 
         //hide player
-        PC.enabled = false;
+        //PC.enabled = false;
         PC.GetComponent<Renderer>().enabled = false;
 
         //gravity reset
@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour {
         ScoreManager.AddPoints(-PointPenaltyOnDeath);
 
         //debug message
-        Debug,Log("PC Respawn");
+        Debug.Log("PC Respawn");
 
         //respawn delay
         yield return new WaitForSeconds(RespawnDelay);
@@ -63,6 +63,10 @@ public class LevelManager : MonoBehaviour {
         PC.transform.position = CurrentCheckPoint.transform.position;
 
         //show player
+        //PC.enabled = true;
+        PC.GetComponent<Renderer>().enabled = true;
 
+        //spawn Player
+        Instantiate(RespawnParticle, CurrentCheckPoint.transform.position, CurrentCheckPoint.transform.rotation);
     }
 }
