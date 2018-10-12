@@ -27,13 +27,15 @@ public class Projectile : MonoBehaviour {
         GetComponent<Rigidbody2D>().velocity = new Vector2(Speed, GetComponent<Rigidbody2D>().velocity.y);
 	}
 
-	private void OnTriggerEnter(Collider2D other){
+	void OnTriggerEnter(Collider2D other){
         if(other.tag == "Enemy"){
             Instantiate(EnemyDeath, other.transform.position, other.transform.rotation);
             Destroy(other.gameObject);
             ScoreManager.AddPoints(PointsForKill);
         }
-
+        Instantiate(ProjectileParticle, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
-	Instantiate(ProjectileParticle, transform.position, transform.rotation);
+
+
 }
