@@ -2373,7 +2373,11 @@ Prefab:
     - target: {fileID: 114882352338654466, guid: b02fc339c36e9484eb64e464d0b77063,
         type: 2}
       propertyPath: MoveSpeed
-      value: 50
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738228203940716, guid: b02fc339c36e9484eb64e464d0b77063, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b02fc339c36e9484eb64e464d0b77063, type: 2}
@@ -3728,6 +3732,10 @@ Prefab:
       propertyPath: MoveSpeed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1738228203940716, guid: b02fc339c36e9484eb64e464d0b77063, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b02fc339c36e9484eb64e464d0b77063, type: 2}
   m_IsPrefabParent: 0
@@ -4971,7 +4979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e632c1df0044f457b8dd1d5397964b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
+  Speed: 15
   PC: {fileID: 1195341680}
   EnemyDeath: {fileID: 213718554}
   ProjectileParticle: {fileID: 213718554}
@@ -5240,6 +5248,28 @@ Prefab:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 870082244}
+    - target: {fileID: 114660216783706604, guid: edff80f239e7849438f288b6e653fa37,
+        type: 2}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 870082244}
+    - target: {fileID: 1320652890816170, guid: edff80f239e7849438f288b6e653fa37, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627806968393092, guid: edff80f239e7849438f288b6e653fa37, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 4113641237966310, guid: edff80f239e7849438f288b6e653fa37, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337726041542806, guid: edff80f239e7849438f288b6e653fa37, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edff80f239e7849438f288b6e653fa37, type: 2}
   m_IsPrefabParent: 0
@@ -5806,6 +5836,10 @@ Prefab:
         type: 2}
       propertyPath: MoveSpeed
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738228203940716, guid: b02fc339c36e9484eb64e464d0b77063, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b02fc339c36e9484eb64e464d0b77063, type: 2}
@@ -6523,6 +6557,10 @@ Prefab:
       propertyPath: LevelManager
       value: 
       objectReference: {fileID: 1393811979}
+    - target: {fileID: 1738228203940716, guid: b02fc339c36e9484eb64e464d0b77063, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b02fc339c36e9484eb64e464d0b77063, type: 2}
   m_IsPrefabParent: 0
@@ -9221,7 +9259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1817056137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9239,7 +9277,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1817056136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
