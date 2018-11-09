@@ -68,10 +68,10 @@ public class PCcontrolsolo : MonoBehaviour {
 
         //player flip
         if (GetComponent<Rigidbody2D>().velocity.x > 0)
-            transform.localScale = new Vector3(5f, 5f, 1f);
+            transform.localScale = new Vector3(3.5f, 3f, 1f);
 
         else if (GetComponent<Rigidbody2D>().velocity.x < 0)
-            transform.localScale = new Vector3(-5f, 5f, 1f);
+            transform.localScale = new Vector3(-3.5f, 3f, 1f);
 
     }
 
