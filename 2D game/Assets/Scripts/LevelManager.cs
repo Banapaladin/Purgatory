@@ -5,7 +5,9 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour {
 
     public GameObject CurrentCheckPoint;
+
     public Rigidbody2D PC;
+    public GameObject PC2;
 
     //particles
     public GameObject DeathParticle;
@@ -22,6 +24,8 @@ public class LevelManager : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+        PC = GameObject.Find("PC").GetComponent<Rigidbody2D>();
+        PC2 = GameObject.Find("PC");
         //PC = FindObjectOfType<Rigidbody2D>();
 	}
 	
@@ -40,6 +44,7 @@ public class LevelManager : MonoBehaviour {
 
         //hide player
         //PC.enabled = false;
+        PC2.SetActive(false);
         PC.GetComponent<Renderer>().enabled = false;
 
         //gravity reset
@@ -64,6 +69,7 @@ public class LevelManager : MonoBehaviour {
 
         //show player
         //PC.enabled = true;
+        PC2.SetActive(true);
         PC.GetComponent<Renderer>().enabled = true;
 
         //spawn Player
