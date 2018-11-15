@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 50640410147594864}
   - component: {fileID: 114354092011423850}
   - component: {fileID: 114358073656931874}
-  - component: {fileID: 114069259023412708}
   - component: {fileID: 114385234441847012}
   m_Layer: 0
   m_Name: PC
@@ -312,7 +311,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486183055155894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.01, z: 0}
+  m_LocalPosition: {x: -13.23, y: -6.2400002, z: 0}
   m_LocalScale: {x: 3.5, y: 3, z: 1}
   m_Children:
   - {fileID: 4433325767369560}
@@ -470,18 +469,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2506193, y: 0.3160109}
   m_EdgeRadius: 0
---- !u!114 &114069259023412708
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1486183055155894}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9175a6f3bf7654a40845289f7a33e34c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelManager: {fileID: 0}
 --- !u!114 &114354092011423850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -530,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 4408856497032278}
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1423777048751498, guid: 071459e52720b481db15fbf5de227161, type: 2}
 --- !u!198 &198858690578304094
 ParticleSystem:
   m_ObjectHideFlags: 1
