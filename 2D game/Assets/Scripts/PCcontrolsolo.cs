@@ -17,9 +17,12 @@ public class PCcontrolsolo : MonoBehaviour {
     //non-slip variable
     private float moveVelocity;
 
-	// Use this for initialization
+    public Animator Animator;
+
+	// animating stuff
 	void Start () {
-		
+        Animator.SetBool("isWalking", false);
+        Animator.SetBool("isJumping", false);
 	}
 	
 	
@@ -42,6 +45,7 @@ public class PCcontrolsolo : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.UpArrow) && !DoubleJump && !grounded){
             Jump();
             DoubleJump = true;
+            Animator.SetBool("isJumping", false);
         }
 
         //non-slip player
@@ -57,12 +61,22 @@ public class PCcontrolsolo : MonoBehaviour {
             //GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
             moveVelocity = MoveSpeed;
+            Animator.SetBool("isWalking", true);
         }
+        else if (Input.GetKeyUp(KeyCode.RightArrow)){
+            Animator.SetBool("isWalking", false);
+        }
+
         if(Input.GetKey (KeyCode.LeftArrow)){
             //GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
             moveVelocity = -MoveSpeed;
+            Animator.SetBool("isWalking", true);
         }
+        else if (Input.GetKeyUp(KeyCode.LeftArrow)){
+            Animator.SetBool("isWalking", false);
+        }
+
         //comment this out when you turn off no-slip
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
 
@@ -77,6 +91,7 @@ public class PCcontrolsolo : MonoBehaviour {
 
     public void Jump(){
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, Jumpheight);
+        Animator.SetBool("isJumping", true);
     }
     public void Drop(){
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -Jumpheight);
