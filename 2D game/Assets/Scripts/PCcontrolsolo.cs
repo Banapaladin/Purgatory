@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PCcontrolsolo : MonoBehaviour {
+public class PCcontrolsolo : MonoBehaviour{
 
     // Player Movement Variables
     public int MoveSpeed;
@@ -19,81 +19,93 @@ public class PCcontrolsolo : MonoBehaviour {
 
     public Animator Animator;
 
-	// animating stuff
-	void Start () {
+    // animating stuff
+    void Start()
+    {
         Animator.SetBool("isWalking", false);
         Animator.SetBool("isJumping", false);
-	}
-	
-	
-	void FixedUpdate () {
+    }
+
+
+    void FixedUpdate()
+    {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-	}
+    }
 
-	// Update is called once per frame
-	private void Update(){
+    // Update is called once per frame
+    private void Update()
+    {
 
-            //this code makes the character jump
-        if(Input.GetKeyDown(KeyCode.UpArrow) && grounded){
-                Jump(); 
-            }
-
-        //double jump
-        if (grounded)
-            DoubleJump = false;
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) && !DoubleJump && !grounded){
+        //this code makes the character jump
+        if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
+        {
             Jump();
-            DoubleJump = true;
+        }
+        else if (!grounded){
             Animator.SetBool("isJumping", false);
         }
+            //double jump
+            if (grounded)
+                DoubleJump = false;
+            Animator.SetBool("isJumping", false);
 
-        //non-slip player
-        moveVelocity = 0f;
-
-        //this is the drop command
-        if (Input.GetKeyDown(KeyCode.DownArrow)){
-            Drop();
+            if (Input.GetKeyDown(KeyCode.UpArrow) && !DoubleJump && !grounded)
+            {
+                Jump();
+                DoubleJump = true;
             }
 
-        // this is the A&D keys ror left and right.
-        if(Input.GetKey (KeyCode.RightArrow)){
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
-            moveVelocity = MoveSpeed;
-            Animator.SetBool("isWalking", true);
-        }
-        else if (Input.GetKeyUp(KeyCode.RightArrow)){
-            Animator.SetBool("isWalking", false);
-        }
+            //non-slip player
+            moveVelocity = 0f;
 
-        if(Input.GetKey (KeyCode.LeftArrow)){
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
-            moveVelocity = -MoveSpeed;
-            Animator.SetBool("isWalking", true);
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftArrow)){
-            Animator.SetBool("isWalking", false);
-        }
+            //this is the drop command
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Drop();
+            }
 
-        //comment this out when you turn off no-slip
-        GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
+            // this is the A&D keys ror left and right.
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                //GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+                //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
+                moveVelocity = MoveSpeed;
+                Animator.SetBool("isWalking", true);
+            }
+            else if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                Animator.SetBool("isWalking", false);
+            }
 
-        //player flip
-        if (GetComponent<Rigidbody2D>().velocity.x > 0)
-            transform.localScale = new Vector3(3.5f, 3f, 1f);
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                //GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+                //If you want to have a no-slip character, comment out the above line, and uncomment the below line.
+                moveVelocity = -MoveSpeed;
+                Animator.SetBool("isWalking", true);
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                Animator.SetBool("isWalking", false);
+            }
 
-        else if (GetComponent<Rigidbody2D>().velocity.x < 0)
-            transform.localScale = new Vector3(-3.5f, 3f, 1f);
+            //comment this out when you turn off no-slip
+            GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
 
+            //player flip
+            if (GetComponent<Rigidbody2D>().velocity.x > 0)
+                transform.localScale = new Vector3(3.5f, 3f, 1f);
+
+            else if (GetComponent<Rigidbody2D>().velocity.x < 0)
+                transform.localScale = new Vector3(-3.5f, 3f, 1f);
+        
     }
-
-    public void Jump(){
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, Jumpheight);
-        Animator.SetBool("isJumping", true);
-    }
-    public void Drop(){
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -Jumpheight);
-    }
+        public void Jump(){
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, Jumpheight);
+            Animator.SetBool("isJumping", true);
+        }
+        public void Drop(){
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -Jumpheight);
+        }
+    
 }
