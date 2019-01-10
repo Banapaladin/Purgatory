@@ -96824,12 +96824,12 @@ Prefab:
     - target: {fileID: 114358073656931874, guid: edff80f239e7849438f288b6e653fa37,
         type: 2}
       propertyPath: MoveSpeed
-      value: 70
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114358073656931874, guid: edff80f239e7849438f288b6e653fa37,
         type: 2}
       propertyPath: Jumpheight
-      value: 70
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edff80f239e7849438f288b6e653fa37, type: 2}
